@@ -1,3 +1,6 @@
+
+Note: Project was done using a custom git repo at https://github.com/Calculus-Master/GAME426-Assignment1 because we had two GitHub classroom teams, and couldn't merge them. We spoke with the professor and he said it was fine for this assignment.
+
 ______________________________________________________
 DUNGEON CRAWLER (Starter Project) - v. 4.0 
 School of Information, University of Arizona 
