@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Steering/Align")]
 public class Align : SteeringBehavior
 {
     // max angular acceleration (in radians)
@@ -17,11 +18,11 @@ public class Align : SteeringBehavior
 
     // The time over which to achieve target speed.
     public float timeToTarget = 0.1f;
-
-    // Overrides the Align.target data member
-    protected Kinematic target;
+    //
+    // // Overrides the Align.target data member
+    // public Kinematic target;
     
-    public override SteeringOutput getSteering()
+    public override SteeringOutput getSteering(Kinematic character, Kinematic target)
     {
         SteeringOutput result = new SteeringOutput();
         var rotation = target.orientation - character.orientation;

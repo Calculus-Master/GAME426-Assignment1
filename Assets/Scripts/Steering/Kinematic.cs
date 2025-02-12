@@ -18,7 +18,7 @@ public class Kinematic
 
     // scene object to which
     // this refers (if any)
-    private GameObject targetObj;
+    public GameObject targetObj;
 
     // class constructor
     public Kinematic(GameObject targetObj)
@@ -29,6 +29,7 @@ public class Kinematic
         velocity = Vector3.zero;
         rotation = 0.0f;
     }
+
     public void SetTarget(GameObject targetObj)
     {
         this.targetObj = targetObj;

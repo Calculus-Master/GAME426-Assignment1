@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Steering/Seek")]
 public class Seek : SteeringBehavior
 {
     public float maxAcceleration = 0.5f;
 
     // the target's kinematic properties
     protected Kinematic target;
-    public override SteeringOutput getSteering()
+    public override SteeringOutput getSteering(Kinematic character, Kinematic target)
     {
         SteeringOutput result = new SteeringOutput();
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Steering/BlendedSteering")]
 public class BlendedSteering : SteeringBehavior
 {
     public class BehaviorAndWeight
@@ -14,13 +15,13 @@ public class BlendedSteering : SteeringBehavior
     public float maxAcceleration;
     public float maxRotation;
 
-    public override SteeringOutput getSteering()
+    public override SteeringOutput getSteering(Kinematic character, Kinematic target)
     {
         SteeringOutput result = new SteeringOutput();
 
         foreach (var behavior in behaviors)
         {
-            var steeringOutput = behavior.behavior.getSteering();
+            var steeringOutput = behavior.behavior.getSteering(character, target);
             result.angular += behavior.weight * steeringOutput.angular;
             result.linear += behavior.weight * steeringOutput.linear;
         }
