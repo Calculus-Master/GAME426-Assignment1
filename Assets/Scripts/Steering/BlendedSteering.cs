@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Steering/BlendedSteering")]
 public class BlendedSteering : SteeringBehavior
 {
+    [Serializable]
     public class BehaviorAndWeight
     {
         public SteeringBehavior behavior;

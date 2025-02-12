@@ -6,7 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Steering/PrioritySteering")]
 public class PrioritySteering : SteeringBehavior
 {
-    public List<BlendedSteering> groups;
+    //TODO: priority queue or something
+    public List<SteeringBehavior> groups;
     
     public override SteeringOutput getSteering(Kinematic character, Kinematic target)
     {
