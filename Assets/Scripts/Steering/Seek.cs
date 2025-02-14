@@ -9,7 +9,7 @@ public class Seek : SteeringBehavior
 
     // the target's kinematic properties
     protected Kinematic target;
-    public override SteeringOutput getSteering(Kinematic character, Kinematic target)
+    public override SteeringOutput getSteering(Kinematic character, Kinematic target, RoomManager manager)
     {
         SteeringOutput result = new SteeringOutput();
 

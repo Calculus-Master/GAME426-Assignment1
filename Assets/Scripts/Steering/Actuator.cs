@@ -15,4 +15,14 @@ public class Actuator : MonoBehaviour
     {
         
     }
+
+    public object getPath(Kinematic character, Goal goal)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public SteeringOutput output(Kinematic character, object path, Goal goal)
+    {
+        throw new System.NotImplementedException();
+    }
 }

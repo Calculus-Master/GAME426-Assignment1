@@ -15,4 +15,14 @@ public class Constraint : MonoBehaviour
     {
         
     }
+
+    public bool isViolated(object path)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public Goal suggest(Kinematic character, object path, Goal goal)
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Decomposer 
+public class Goal 
 {
-    
-    public Goal decompose(Kinematic character, Goal goal)
+    public void updateChannels(Goal targeterGoal)
     {
         throw new System.NotImplementedException();
     }

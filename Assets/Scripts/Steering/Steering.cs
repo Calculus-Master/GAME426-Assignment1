@@ -17,11 +17,14 @@ public class Steering : MonoBehaviour
     protected Animator animController;
 
     // kinematics for this character
-    protected Kinematic character;
+    public Kinematic character;
     protected Kinematic target;
 
+    private RoomManager manager;
+    
     private void Awake()
     {
+        manager = transform.parent.GetComponent<RoomManager>();
         character = new Kinematic(gameObject);
         character.maxSpeed = maxSpeed;
         // myBehavior.character = character;
@@ -35,7 +38,7 @@ public class Steering : MonoBehaviour
         transform.position = character.position;
         transform.rotation = Quaternion.Euler(0.0f, character.orientation * Mathf.Rad2Deg, 0.0f);
 
-        SteeringOutput result = myBehavior.getSteering(character, target);
+        SteeringOutput result = myBehavior.getSteering(character, target, manager);
         character.EulerIntegration(result, Time.deltaTime);
     }
 

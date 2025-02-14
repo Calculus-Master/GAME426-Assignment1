@@ -7,7 +7,7 @@ public class Face : Align
 {
     // public Kinematic target;
 
-    public override SteeringOutput getSteering(Kinematic character, Kinematic target)
+    public override SteeringOutput getSteering(Kinematic character, Kinematic target, RoomManager manager)
     {
         SteeringOutput result = new SteeringOutput();
 
@@ -21,7 +21,7 @@ public class Face : Align
         // base.target = target;
         target = new Kinematic(target.targetObj);
         target.orientation = Mathf.Atan2(direction.x, direction.z);
-        return base.getSteering(character, target);
+        return base.getSteering(character, target, manager);
     }
 }
 

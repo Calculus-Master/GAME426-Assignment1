@@ -22,7 +22,7 @@ public class Align : SteeringBehavior
     // // Overrides the Align.target data member
     // public Kinematic target;
     
-    public override SteeringOutput getSteering(Kinematic character, Kinematic target)
+    public override SteeringOutput getSteering(Kinematic character, Kinematic target, RoomManager manager)
     {
         SteeringOutput result = new SteeringOutput();
         var rotation = target.orientation - character.orientation;

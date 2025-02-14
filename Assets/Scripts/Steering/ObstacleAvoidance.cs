@@ -14,7 +14,7 @@ public class ObstacleAvoidance : Seek
     public int obstacleLayer;
     public int numWhiskers = 3;
     public float fov = 60;
-    public override SteeringOutput getSteering(Kinematic character, Kinematic target)
+    public override SteeringOutput getSteering(Kinematic character, Kinematic target, RoomManager manager)
     {
         //TODO: triple ray configuration for shorter whiskers
         SteeringOutput result = new SteeringOutput();
@@ -31,7 +31,7 @@ public class ObstacleAvoidance : Seek
             float currentRotation = startRotation + rotationPerWhisker * i;
             Ray ray = new Ray(rayOrigin, Quaternion.Euler(0, currentRotation, 0) * character.velocity.normalized);
             bool collisionDetected = Physics.Raycast(ray, out RaycastHit hit, lookahead, 1 << obstacleLayer);
-            Debug.DrawRay(ray.origin, ray.direction * lookahead, Color.red);
+            // Debug.DrawRay(ray.origin, ray.direction * lookahead, Color.red);
 
             if (!collisionDetected)
             {
@@ -59,8 +59,8 @@ public class ObstacleAvoidance : Seek
         avoidPoint.y = character.position.y;
         target.position =  avoidPoint + collisionNormal * avoidDistance;
         Vector3 debugPoint = avoidPoint;
-        debugPoint.y = height + character.position.y;
-        Debug.DrawRay(debugPoint, (target.position - avoidPoint).normalized * avoidDistance, Color.green);
-        return base.getSteering(character, target);
+        // debugPoint.y = height + character.position.y;
+        // Debug.DrawRay(debugPoint, (target.position - avoidPoint).normalized * avoidDistance, Color.green);
+        return base.getSteering(character, target, manager);
     }
 }

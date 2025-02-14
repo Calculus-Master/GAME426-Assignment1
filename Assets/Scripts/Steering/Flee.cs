@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Decomposer 
+public class Flee : SteeringBehavior
 {
-    
-    public Goal decompose(Kinematic character, Goal goal)
+    public override SteeringOutput getSteering(Kinematic character, Kinematic target, RoomManager manager)
     {
         throw new System.NotImplementedException();
     }

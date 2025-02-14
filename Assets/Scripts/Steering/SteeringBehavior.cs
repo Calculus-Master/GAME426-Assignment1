@@ -17,7 +17,8 @@ public abstract class SteeringBehavior : ScriptableObject
     // // kinematics for this character
     // public Kinematic character;
 
-    public abstract SteeringOutput getSteering(Kinematic character, Kinematic target);
+    //TODO: pass room manager/ sensemanager
+    public abstract SteeringOutput getSteering(Kinematic character, Kinematic target, RoomManager manager);
     //TODO: get the list of targets from inside the behavior itself, i like this idea better
     
     // public abstract SteeringOutput getSteering(Kinematic character, Kinematic target, float maxSpeed);

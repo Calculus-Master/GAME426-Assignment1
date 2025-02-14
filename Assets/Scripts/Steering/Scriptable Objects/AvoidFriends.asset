@@ -9,16 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35ae7615d4fc2c94d858dce7cc283f98, type: 3}
-  m_Name: Horde1Wander
+  m_Script: {fileID: 11500000, guid: 5d42502ee66c5dd4380b090c4032b459, type: 3}
+  m_Name: AvoidFriends
   m_EditorClassIdentifier: 
   maxSpeed: 1.25
-  maxAngularAcceleration: 2
-  maxRotation: 2
-  targetRadius: 0.05
-  slowRadius: 1
-  timeToTarget: 0.1
-  wanderOffset: 1
-  wanderRadius: 5
-  wanderRate: 1
-  maxAcceleration: 1
+  maxAcceleration: 2
+  RepulseThreshold: 0.3

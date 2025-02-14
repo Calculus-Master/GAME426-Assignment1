@@ -17,13 +17,13 @@ public class BlendedSteering : SteeringBehavior
     public float maxAcceleration;
     public float maxRotation;
 
-    public override SteeringOutput getSteering(Kinematic character, Kinematic target)
+    public override SteeringOutput getSteering(Kinematic character, Kinematic target, RoomManager manager)
     {
         SteeringOutput result = new SteeringOutput();
 
         foreach (var behavior in behaviors)
         {
-            var steeringOutput = behavior.behavior.getSteering(character, target);
+            var steeringOutput = behavior.behavior.getSteering(character, target, manager);
             result.angular += behavior.weight * steeringOutput.angular;
             result.linear += behavior.weight * steeringOutput.linear;
         }

@@ -16,7 +16,7 @@ public class Wander : Face
     private float wanderOrientation;
 
     
-    public override SteeringOutput getSteering(Kinematic character, Kinematic target)
+    public override SteeringOutput getSteering(Kinematic character, Kinematic target, RoomManager manager)
     {
         target = new Kinematic(target.targetObj);
         wanderOrientation += UnityEngine.Random.Range(-1, 1) * wanderRate;
@@ -26,7 +26,7 @@ public class Wander : Face
 
         target.position += wanderRadius * new Vector3(Mathf.Sin(targetOrientation), 0f, Mathf.Cos(targetOrientation));
 
-        var result = base.getSteering(character, target);
+        var result = base.getSteering(character, target, manager);
 
         result.linear = maxAcceleration * 
                         new Vector3(Mathf.Sin(character.orientation), 0f, Mathf.Cos(character.orientation));

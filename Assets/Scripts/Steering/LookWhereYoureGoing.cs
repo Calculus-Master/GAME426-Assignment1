@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Steering/LookWhereYoureGoing")]
 public class LookWhereYoureGoing : Align
 {
-   public override SteeringOutput getSteering(Kinematic character, Kinematic target)
+   public override SteeringOutput getSteering(Kinematic character, Kinematic target, RoomManager manager)
    {
       Vector3 velocity = character.velocity;
       if (Mathf.Approximately(velocity.magnitude, 0))
@@ -15,6 +15,6 @@ public class LookWhereYoureGoing : Align
 
       target = new Kinematic(target.targetObj);
       target.orientation = Mathf.Atan2(velocity.x, velocity.z);
-      return base.getSteering(character, target);
+      return base.getSteering(character, target, manager);
    }
 }
