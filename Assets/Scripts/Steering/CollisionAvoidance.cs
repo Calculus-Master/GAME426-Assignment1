@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(menuName = "Steering/CollisionAvoidance")]
 public class CollisionAvoidance : Evade
 {
-    public float maxAcceleration;
+    //public float maxAcceleration;
     [FormerlySerializedAs("radius")] public float RepulseThreshold;
 
     public override SteeringOutput getSteering(Kinematic character, Kinematic t, RoomManager manager)

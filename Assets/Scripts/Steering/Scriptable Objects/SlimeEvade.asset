@@ -9,16 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35ae7615d4fc2c94d858dce7cc283f98, type: 3}
-  m_Name: Horde1Wander
+  m_Script: {fileID: 11500000, guid: 1fba9fe14a9f2f04e9421c901526b9ed, type: 3}
+  m_Name: SlimeEvade
   m_EditorClassIdentifier: 
   maxSpeed: 1.25
-  maxAngularAcceleration: 4
-  maxRotation: 2
-  targetRadius: 0.05
-  slowRadius: 1
-  timeToTarget: 0.1
-  wanderOffset: 1
-  wanderRadius: 20
-  wanderRate: 5
-  maxAcceleration: 2
+  maxAcceleration: 0.5
+  maxPredictionTime: 1.5

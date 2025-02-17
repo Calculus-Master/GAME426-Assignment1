@@ -15,5 +15,4 @@ MonoBehaviour:
   maxSpeed: 1.25
   groups:
   - {fileID: 11400000, guid: f9ad31830dd5ee14eb3054dd40737175, type: 2}
-  - {fileID: 11400000, guid: 21f52f51124ea8841ad0fd8cb196ef6c, type: 2}
   - {fileID: 11400000, guid: 563a8232d89be3048bf2c1ca16104430, type: 2}
