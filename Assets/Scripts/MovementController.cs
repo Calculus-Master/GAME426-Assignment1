@@ -31,6 +31,8 @@ public class MovementController : MonoBehaviour
     private bool _isMoving;
     private bool _canMagicAttack;
 
+    private List<PathNodeTracker> _enemies;
+
     // co-routine method variable (pointer)
     private IEnumerator coroutine;
 
@@ -70,6 +72,9 @@ public class MovementController : MonoBehaviour
 
         this._movementPath = new List<Pathfinder.PathNode>();
         this._canMagicAttack = true;
+        
+        // Store a list of references to all enemies
+        this._enemies = new List<PathNodeTracker>(FindObjectsOfType<PathNodeTracker>());
     }
 
     // Update is called once per frame
@@ -121,9 +126,18 @@ public class MovementController : MonoBehaviour
                 this.pathfinder.FindAoE(this.transform.position, this.areaEffectDist);
             
             Debug.Log("Dijkstra's Algorithm: Found " + targetTiles.Count + " tiles in range.");
-            
+
             foreach (Pathfinder.PathNode n in targetTiles)
+            {
                 n.Activate(Pathfinder.PathNode.AOE_COLOR);
+                
+                foreach (PathNodeTracker e in this._enemies)
+                    if (e.GetCurrentGridTile().transform.position == n.transform.position)
+                    {
+                        e.gameObject.SetActive(false);
+                        Debug.Log("Killed Enemy at " + e.transform.position);
+                    }
+            }
 
             StartCoroutine(ResetAoETileColors(targetTiles));
 

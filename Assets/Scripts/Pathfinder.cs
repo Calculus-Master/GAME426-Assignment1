@@ -203,7 +203,7 @@ public class Pathfinder : MonoBehaviour
         }
         
         // Prune a list of nodes that are within the step distance
-        return visited.Where(n => n.gCost <= maxSteps).ToList();
+        return visited.Where(n => n.gCost <= maxSteps * 4).ToList();
     }
     
     private static PathNode GetLowestFCostNode(List<PathNode> list) 
@@ -247,7 +247,7 @@ public class Pathfinder : MonoBehaviour
         return Mathf.Sqrt(Mathf.Pow(a.position.x - b.position.x, 2) + Mathf.Pow(a.position.z - b.position.z, 2));
     }
 
-    private PathNode GetPathNode(Vector3 pos)
+    public PathNode GetPathNode(Vector3 pos)
     {
         pos += new Vector3(0, 1, 0);
         if (!Physics.Raycast(pos, Vector3.down, out RaycastHit hit, 5)) 
