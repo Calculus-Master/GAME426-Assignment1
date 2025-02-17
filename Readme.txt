@@ -1,6 +1,17 @@
 
 Note: Project was done using a custom git repo at https://github.com/Calculus-Master/GAME426-Assignment1 because we had two GitHub classroom teams, and couldn't merge them. We spoke with the professor and he said it was fine for this assignment.
 
+Required Parts
+--------------
+Part 1: Left clicking a square will highlight the shortest path by marking the tiles in green. As the player moves across the tiles, the color will revert. If the tile is unreachable, then the player will stop moving. We used a Euclidean distance heuristic for this.
+Part 2: Using the hero's magic attack will highlight all tiles within the AoE in cyan, and once the animation ends the tiles will revert back to their default color. All enemies in the radius will be immediately removed.
+Part 3:
+
+Extra Parts
+--------------
+Part 5:
+Part 6:
+
 ______________________________________________________
 DUNGEON CRAWLER (Starter Project) - v. 4.0 
 School of Information, University of Arizona 

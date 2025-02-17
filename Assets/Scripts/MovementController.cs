@@ -139,6 +139,8 @@ public class MovementController : MonoBehaviour
                     }
             }
 
+            this._canMagicAttack = false;
+
             StartCoroutine(ResetAoETileColors(targetTiles));
 
             StartCoroutine(MagicAttackCooldown());
