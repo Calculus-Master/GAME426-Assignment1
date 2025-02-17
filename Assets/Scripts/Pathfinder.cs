@@ -169,8 +169,16 @@ public class Pathfinder : MonoBehaviour
             for (int j = 0; j < this._labyrinth.GetLength(1); j++)
                 if (this._labyrinth[i, j] is not null)
                 {
-                    this._labyrinth[i, j].Reset();
-                    queue.Add(this._labyrinth[i, j]);
+                    PathNode n = this._labyrinth[i, j];
+                    n.Reset();
+                    
+                    if(n == source)
+                    {
+                        n.gCost = 0;
+                        n.CalcF();
+                    }
+                    
+                    queue.Add(n);
                 }
         
         // Dijkstra
@@ -188,6 +196,7 @@ public class Pathfinder : MonoBehaviour
                 if (v.gCost > min.gCost + w)
                 {
                     v.gCost = min.gCost + w;
+                    v.CalcF();
                     v.parent = min;
                 }
             }
