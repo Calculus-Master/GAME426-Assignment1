@@ -126,17 +126,20 @@ public class MovementController : MonoBehaviour
                 this.pathfinder.FindAoE(this.transform.position, this.areaEffectDist);
             
             Debug.Log("Dijkstra's Algorithm: Found " + targetTiles.Count + " tiles in range.");
-
+            
             foreach (Pathfinder.PathNode n in targetTiles)
             {
                 n.Activate(Pathfinder.PathNode.AOE_COLOR);
                 
                 foreach (PathNodeTracker e in this._enemies)
-                    if (e.GetCurrentGridTile().transform.position == n.transform.position)
+                {
+                    Pathfinder.PathNode tile = e.GetCurrentGridTile();
+                    if (tile is not null && tile.transform.position == n.transform.position)
                     {
                         e.gameObject.SetActive(false);
                         Debug.Log("Killed Enemy at " + e.transform.position);
                     }
+                }
             }
 
             this._canMagicAttack = false;
@@ -158,7 +161,7 @@ public class MovementController : MonoBehaviour
 
     private IEnumerator ResetAoETileColors(List<Pathfinder.PathNode> tiles)
     {
-        yield return new WaitForSeconds(1.5F);
+        yield return new WaitForSeconds(0.5F);
         
         foreach (Pathfinder.PathNode n in tiles.Where(n => n.GetColor() == Pathfinder.PathNode.AOE_COLOR)) 
             n.Deactivate();
